@@ -1,0 +1,51 @@
+<div class="header">
+  <ul class="nav nav-pills pull-right">
+    <li ng-hide="loggedIn"><a ng-href="#/login">Log In</a> </li>
+    <li ng-hide="loggedIn"><a ng-href="#/register">Register</a></li>
+    <li ng-show="loggedIn"><a name="addEventButton"  ng-href="#/create-event">Add Event</a><li>
+    <li ng-show="loggedIn"><a name="settingsButton"  ng-href="#/settings">Settings</a><li>
+    <li ng-show="loggedIn"><a ng-href='#/logout'>Log Out</a></li>
+  </ul>
+  <h3 class="text-muted"><a class="text-muted" ng-href="#/index">hitMeUp</a></h3>
+</div>
+
+<div class="col-left col-md-3">
+  <h3>Filter by:</h3>
+  <ul class="list-group">
+    <li class="list-group-item"><h4>Event Type</h4>
+      <div ng-repeat="categ in categories">
+        <input type="checkbox" name="categ.category_name" id="categ.category_name">
+        <label for="categ.category_name">  {{ categ.category_name }} </label><br>
+      </div>
+    </li>
+    <li class="list-group-item"><h4>Location Radius</h4>
+      <input type="checkbox" name="one" id="one">
+      <label for="one">1 mile</label><br>
+      <input type="checkbox" name="two" id="two">
+      <label for="two">2 miles</label><br>
+      <input type="checkbox" name="five" id="five">
+      <label for="five">5 miles</label><br>
+      <input type="checkbox" name="ten" id="ten">
+      <label for="ten">10 miles</label><br>
+      <input type="checkbox" name="fifteen" id="fifteen">
+      <label for="fifteen">15 miles</label><br>
+    </li>
+  </ul>
+</div>
+
+<div class="col-right col-md-8">
+  <h3>Event Listings</h3>
+  <ul class="events" ng-repeat="event in events">
+    <li class="event fa fa-chevron-right">
+      <a ng-href="#/event" ng-click="eventClick($index)">
+        <h4>{{  event.name  }}</h4>
+      </a>
+      <ul class="description fa fa-ticket">
+        <li><b>Description:</b> {{ event.description }} </li>
+        <li><b>Start Date:</b> {{ event.start_date  }}</li>
+        <li><b>Location:</b> {{ event.location_longitude  }}, {{  event.location_latitude   }}</li> 
+        <li><b>Event Status:</b> {{ event.event_status  }}</li>
+      </ul>
+    </li>
+  </ul>
+</div>

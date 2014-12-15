@@ -1,0 +1,30 @@
+<div id="create-event" class="page row">
+<div class="header">
+  <ul class="nav nav-pills pull-right">
+    <li class="active"><a name="addEventButton"  ng-href="#/create-event">Add Event</a><li>
+    <li><a name="settingsButton"  ng-href="#/settings">Settings</a><li>
+    <li><a ng-href="#/logout">Log Out</a> </li>
+  </ul>
+  <h3 class="text-muted"><a class="text-muted" ng-href="#/index">hitMeUp</a></h3>
+</div>
+   <h3>Add Event</h3>
+      <form name="addEventForm" ng-submit="addEvent()" class="add-event col-md-8">
+        <div class="form-group">
+          <label  for="event-name">Event Name</label>
+          <input type="text" class="form-control" id="event-name" ng-model="ceName" required>
+          <label for="event-type">Event Type</label>
+          <input type="text" class="form-control" id="event-type" ng-model="ceType" required>
+          <label for="description">Description</label>
+          <input type="text" class="form-control" id="description" ng-model="ceDescription" required>
+          <label for="start-date">Start Date</label>
+          <input type="datetime-local" class="form-control" id="start-date" ng-model="ceStart" required>
+          <label for="end-date">End Date</label>
+          <input type="datetime-local" class="form-control" id="end-date" ng-model="ceEnd" required>
+          <label for="location">Location</label>
+          <input type="text" class="form-control" id="location" ng-model="ceLocation" required>
+          <label for="event-status">Event Status</label>
+          <input type="text" class="form-control" id="event-status" ng-model="ceStatus" required>
+        </div>
+	<button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>

@@ -1,0 +1,70 @@
+<div class="header">
+  <ul class="nav nav-pills pull-right">
+    <li ng-hide="loggedIn"><a ng-href="#/login">Log In</a> </li>
+    <li ng-hide="loggedIn"><a ng-href="#/register">Register</a></li>
+    <li ng-show="loggedIn"><a name="addEventButton"  ng-href="#/create-event">Add Event</a><li>
+    <li ng-show="loggedIn"><a name="settingsButton"  ng-href="#/settings">Settings</a><li>
+    <li ng-show="loggedIn"><a ng-href='#/logout'>Log Out</a></li>
+  </ul>
+  <h3 class="text-muted"><a class="text-muted" ng-href="#/index">hitMeUp</a></h3>
+</div>
+      <div class="left-col col-md-2">
+        <div>
+          <span class="glyphicon glyphicon-certificate">
+          <h3 class="small" ng-bind="eName"></h3>
+        </div>
+      </div>
+      <div class="center-col col-md-8">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <h4 class="small">Event Name</h4>
+            <p class="description" ng-bind="eName"> </p>
+          </li>
+          <li class="list-group-item">
+            <h4 class="small">Event Type</h4>
+            <p class="description" ng-bind="eType"></p>
+          </li>
+          <li class="list-group-item">
+            <h4 class="small">Description</h4>
+            <p class="description" ng-bind="eDescription"></p>
+          </li>
+          <li class="list-group-item">
+            <h4 class="small">Start date</h4>
+            <p class="description" ng-bind="eStartDate"></p>
+          </li>
+          <li class="list-group-item">
+            <h4 class="small">End date</h4>
+            <p class="description" ng-bind="eEndDate"></p>
+          </li>
+          <li class="list-group-item">
+            <h4 class="small">Location</h4>
+            <p class="description" ng-bind="eLocation"></p>
+          </li>
+          <li class="list-group-item">
+            <h4 class="small">Event Status</h4>
+            <p class="description" ng-bind="eStatus"></p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="right-col col-md-2">
+        <div class="interest">
+          <div ng-show="loggedIn">
+            <p>Are you interested?</p>
+            <button class="btn btn-sucess" ng-click="going()">Going</button>
+            <button class="btn btn-primary" ng-click="maybe()">Maybe</button>
+          </div>
+          <div ng-hide="loggedIn">
+            <a class="btn btn-primary" ng-href="#/login">Log in to attend</a>
+          </div>
+        </div>
+        <div class="attendies">
+          <p>Who's Going</p>
+          <div class="list-group">
+            <li class="list-group-item" ng-repeat="name in names">{{name}}</li>
+          </div>
+        </div>      
+        <map name="googleMap"></map>
+  </div>  
+</div>
+
